@@ -1,0 +1,52 @@
+Se te proporciona:
+
+Un diccionario llamado data que contiene nombres 
+de productos y sus precios.
+Una lista llamada product_IDs que representa los IDs de los productos.
+Convierte esta información en un DataFrame
+llamado df usando la librería pandas, configurando product_IDs como índice.
+
+import pandas as pd
+
+# Datos de ejemplo
+data = {
+    "Product Name": ["Laptop", "Tablet", "Smartphone", "Monitor"],
+    "Price": [1200, 500, 800, 300]
+}
+
+product_IDs = [101, 102, 103, 104]
+
+# Crear el DataFrame y establecer el índice
+df = pd.DataFrame(data, index=product_IDs)
+
+# Mostrar el DataFrame
+print(df)
+
+
+----
+import pandas as pd
+
+# Diccionario de ejemplo
+prices_per_product = {
+    "Laptop": 1200,
+    "Tablet": 500,
+    "Smartphone": 800,
+    "Monitor": 300
+}
+
+# Convertir a DataFrame
+df = pd.DataFrame(list(prices_per_product.items()), columns=["Product Name", "Price"])
+
+# Mostrar el DataFrame
+print(df)
+-----
+# Diccionario de ejemplo
+prices_per_product = {
+    "Laptop": 1200,
+    "Tablet": 500,
+    "Smartphone": 800,
+    "Monitor": 300
+}
+
+# Determinar el tipo de la variable
+print(type(prices_per_product))

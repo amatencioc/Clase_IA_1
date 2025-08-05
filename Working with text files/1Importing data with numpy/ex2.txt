@@ -1,0 +1,128 @@
+----ex1---
+Using the arguments of the np.genfromtxt() 
+function, perform the following data cleaning steps:
+"Lending company total price 100.csv"
+1. Set the data type to string.
+2. Skip the first row of the dataset.
+3. Skip the last 15 rows of the dataset.
+4. Load only the 2nd, 3rd, and 5th columns.
+
+import numpy as np
+
+# Configuración para impresión
+np.set_printoptions(suppress=True, linewidth=150)
+
+# Cargar el archivo con limpieza de datos
+lending_co_TP = np.genfromtxt(
+    "Lending-Company-Total-Price-100.csv",  # archivo CSV
+    delimiter=",",                          # separador por comas
+    dtype=str,                              # leer todo como texto
+    skip_header=1,                          # saltar la primera fila (encabezados)
+    skip_footer=15,                         # saltar las últimas 15 filas
+    usecols=(1, 2, 4)                        # cargar solo columnas 2, 3 y 5 (índices base 0)
+)
+
+# Mostrar el resultado
+print(lending_co_TP)
+Explicación de los argumentos usados:
+dtype=str → evita errores al leer texto o números mezclados.
+skip_header=1 → ignora la primera fila (generalmente encabezados).
+skip_footer=15 → descarta las últimas 15 filas.
+usecols=(1, 2, 4) → selecciona columnas específicas (la numeración empieza en 0).
+----ex2---------
+Now that you understand how the np.genfromtext() function works, 
+set its parameters with the following arguments in the given code 
+(lines 4 to 15 inclusive):
+
+
+1. Usar coma como separador del CSV.
+2. Leer todos los valores como texto.
+3. Saltar la primera fila (encabezados)..
+4. Saltar las últimas 15 filas
+5. Cargar solo columnas 2, 3 y 5 (índices base 0).
+"Lending-Company-Total-Price-100.csv".
+6. Usar # como indicador de inicio de comentario.
+7.  No realizar conversiones personalizadas.
+8.  Solo los campos vacíos son considerados datos faltantes.
+9. No excluir ningún nombre de campo.
+10. Reemplazar espacios por guiones bajos en nombres de campo.
+11.  Eliminar espacios al inicio y final de los nombres de campo.
+
+
+import numpy as np
+
+np.set_printoptions(suppress=True, linewidth=150)
+
+lending_co_TP = np.genfromtxt(
+    "Lending-Company-Total-Price-100.csv",
+    delimiter=",",                # 1. Separador coma
+    dtype=str,                     # 2. Tipo de dato string
+    skip_header=1,                 # 3. Saltar primera fila
+    skip_footer=15,                # 4. Saltar últimas 15 filas
+    usecols=(1, 2, 4),              # 5. Columnas 2, 3 y 5
+    comments="#",                   # 6. '#' como comentario
+    converters=None,                # 7. Sin conversiones
+    missing_values="",              # 8. Campos vacíos = missing data
+    deletechars="",                 # 9. No eliminar caracteres
+    replace_space="_",              # 10. Reemplazar espacio por '_'
+    autostrip=True                  # 11. Quitar espacios extra
+)
+
+print(lending_co_TP)
+
+----ex3---------
+Limpieza parcial durante la importación
+Carga solo la primera y la última columna del archivo
+"Lending-Company-Total-Price-100.csv" en un arreglo bidimensional
+ llamado lending_co_TP, usando:
+
+Coma como delimitador.
+Tipo de dato string.
+Saltando la primera fila.
+Muestra el contenido de lending_co_TP en la consola.
+
+import numpy as np
+
+# Configuración de impresión
+np.set_printoptions(suppress=True, linewidth=150)
+
+# Cargar archivo cumpliendo las condiciones
+lending_co_TP = np.genfromtxt(
+    "Lending-Company-Total-Price-100.csv",
+    delimiter=",",        # Usar coma como separador
+    dtype=str,             # Leer como texto
+    skip_header=1,         # Saltar la primera fila
+    usecols=(0, -1)        # Seleccionar primera y última columna
+)
+
+# Mostrar el contenido
+print(lending_co_TP)
+
+
+--
+Similar al ejercicio anterior, carga solo la primera y última columna del archivo
+"Lending-Company-Total-Price-100.csv" en un arreglo bidimensional
+ llamado lending_co_TP, usando:
+
+Coma como delimitador.
+Saltando la primera fila.
+Esta vez usando tipo de dato NumPy float de 32 bits.
+Muestra el contenido de lending_co_TP en la consola.
+
+import numpy as np
+
+# Configuración de impresión
+np.set_printoptions(suppress=True, linewidth=150)
+
+# Cargar archivo como float32
+lending_co_TP = np.genfromtxt(
+    "Lending-Company-Total-Price-100.csv",
+    delimiter=",",        # Usar coma como separador
+    dtype=np.float32,      # Usar float de 32 bits
+    skip_header=1,         # Saltar la primera fila
+    usecols=(0, -1)        # Seleccionar primera y última columna
+)
+
+# Mostrar el contenido
+print(lending_co_TP)
+

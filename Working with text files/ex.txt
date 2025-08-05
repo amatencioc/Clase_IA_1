@@ -1,0 +1,5 @@
+You are provided with a text file named 'Lending-company-100. csv'.
+
+1. Using the 'pandas' library, load the contents of the *.csv file into a DataFrame named my_csv_data.
+
+2. Determine and display the type of my_csv_data using the print() function.

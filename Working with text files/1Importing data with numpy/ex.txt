@@ -1,0 +1,121 @@
+Importing data with Numpy
+importing data with numpy
+
+By default, np.loadtxt() assumes all values are numeric, 
+so it crashes when it encounters text data. We can bypass 
+this by specifying the data type as a NumPy string type when importing.
+
+
+import numpy as np
+
+np.set_printoptions(suppress = True, linewidth = 150)
+
+lending_co_TP = np.loadtxt("Lending-Company-Total-Price-100.csv", delimiter = ',')
+
+print(lending_co_TP)
+
+@ValueError: could not convert string to float: 'column_name'
+
+
+como evitarlo:
+Indica explícitamente que quieres leer todo como texto usando dtype=str:
+
+import numpy as np
+
+# Evitar notación científica y ajustar ancho de impresión
+np.set_printoptions(suppress=True, linewidth=150)
+
+# Leer el archivo como texto para evitar errores con datos no numéricos
+lending_co_TP = np.loadtxt("Lending-Company-Total-Price-100.csv", delimiter=",", dtype=str)
+
+print(lending_co_TP)
+
+--------------------
+Use the NumPy function np.genfromtxt() to load the 
+"Lending-Company-Total-Price-100.csv" file and display its contents. 
+To solve the task, specify a comma as the delimiter in the function call.
+
+import numpy as np
+
+np.set_printoptions(suppress = True, linewidth = 150)
+
+lending_co_TP ="np.genfromtxt("Lending-Company-Total-Price-100.csv", delimiter=",", dtype=str)"
+
+print(lending_co_TP)
+
+"np.genfromtxt()
+
+Más flexible que np.loadtxt().
+
+Puede manejar valores faltantes y columnas con texto.
+
+Con dtype=str evitamos que se intente convertir todo a número.
+
+delimiter="," → indica que el archivo es CSV separado por comas.
+
+dtype=str → lee todo como texto para evitar errores cuando hay texto y números mezclados.
+---------------
+
+Partial cleaning
+skip_footer // usecols
+-----------------------------------------------------------
+A Note on Using the NumPy .genfromtxt() Function
+
+In the upcoming exercises, 
+we’ll be testing your ability to navigate the 
+NumPy documentation. Specifically, please refer to 
+the documentation for the np.genfromtxt() function and take a moment 
+to briefly explore the following parameters:
+
+    comments
+
+    converters
+
+    missing_values
+
+    excludelist
+
+    deletechars
+
+    replace_space
+
+    autostrip
+
+Don’t worry — you’re not expected to understand the
+ full implementation or use each parameter in depth.
+ The goal is simply to develop a basic idea of what
+ each parameter does and how it might be useful.
+
+For your convenience, a short
+ description of each parameter is provided below.
+Feel free to try them out in the code cell if you’d like.
+
+Good luck and enjoy exploring!
+
+
+Parameter Descriptions :
+
+
+    comments: The character used to indicate the start of a comment. 
+All characters occurring on the same line after the comment character are discarded.
+
+converters: A dictionary of functions that convert 
+   the data in a given column to a value. Converters can also be 
+   used to handle missing data by supplying default values — for example:
+    converters = {3: lambda s: float(s or 0)}
+
+    missing_values: A set of strings that represent missing data in the file.
+
+    excludelist: A list of names to exclude. 
+This list is appended to the default list ['return', 'file', 'print']. 
+Excluded names are modified by appending an underscore — for example, 
+file becomes file_.
+
+    deletechars: A string of characters considered invalid 
+in variable names; these will be deleted.
+
+    replace_space: Character(s) used to replace spaces 
+in variable names. By default, spaces are replaced with an underscore (_).
+
+    autostrip: A boolean value that determines whether 
+white space should be automatically stripped from variable names and data values.
