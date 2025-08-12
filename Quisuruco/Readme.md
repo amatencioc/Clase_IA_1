@@ -1,1 +1,0 @@
-## Quisuruco Ciprian Jeferson David
